@@ -4,26 +4,17 @@ public class DataTest {
 
 	public static void main(String[] args) throws Exception {
 
-		LIFOStackAdvanced<Integer> integerStack = new LIFOStackAdvanced<Integer>(Integer.class, 100);
-		integerStack.push(1);
-		integerStack.push(2);
-		for (Integer loopInteger : integerStack) {
-			System.out.println(loopInteger);
+		LinkedList<Integer> linkedListForTesting= new LinkedList<Integer>();
+		linkedListForTesting.add(1);
+		linkedListForTesting.add(3);
+		linkedListForTesting.add(4);
+		linkedListForTesting.removeFirst();
+		linkedListForTesting.removeLast();
+		linkedListForTesting.removeLast();
+		//linkedListForTesting.remove(2);
+		for(Integer i:linkedListForTesting){
+			System.out.println(i);
 		}
-		// LIFOStack<Integer> integerStack= new
-		// LIFOStack<Integer>(Integer.class);
-		// try {
-		// integerQueue.push(1);
-		// integerQueue.push(2);
-		// integerQueue.pop();
-		//
-		// System.out.println(integerQueue.currentSize());
-		//
-		// } catch (Exception e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		//
-		//
+		
 	}
 }

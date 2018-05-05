@@ -29,10 +29,11 @@ public class LIFOStack<E> {
 
 	}
 
-	void pop() throws Exception {
+	E pop() throws Exception {
 		if (currentSize > 0) {
-			lifoStackArray[currentSize] = null;
 			currentSize--;
+			return lifoStackArray[currentSize];
+			
 		} else {
 			throw new Exception("Cannot perform this operation, size of queue zero");
 		}

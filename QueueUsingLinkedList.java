@@ -21,13 +21,18 @@ public class QueueUsingLinkedList<E> implements Iterable<E> {
 		size++;
 	}
 
-	E dequeue() {
-		Node<E> old_last = last;
-		Node<E> new_last = last.previous;
-		new_last.next = null;
-		last = new_last;
-		size--;
-		return old_last.item;
+	E dequeue() throws Exception {
+		if (size > 0) {
+			Node<E> old_last = last;
+			Node<E> new_last = last.previous;
+			new_last.next = null;
+			last = new_last;
+			size--;
+			return old_last.item;
+		} else {
+			throw new Exception("Error: Queue Size Zero");
+		}
+
 	}
 
 	@SuppressWarnings("hiding")

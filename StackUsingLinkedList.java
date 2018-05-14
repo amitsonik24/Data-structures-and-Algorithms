@@ -2,41 +2,36 @@ package com.algorithms.main;
 
 import java.util.Iterator;
 
-
-public class StackUsingLinkedList<E> implements Iterable<E>{
+public class StackUsingLinkedList<E> implements Iterable<E> {
 
 	private Node<E> first;
-	private Node<E> last;
-	int size;
+	private int size;
 
-	void push(E o) {
-		Node<E> old_last = last;
-		last = new Node<E>();
-		last.item = o;
-		last.previous = old_last;
-		if (old_last != null) {
-			old_last.next = last;
-		} else {
-			first = last;
-		}
+	public void push(E o) {
+		Node<E> oldfirst = first;
+		first = new Node<E>();
+		first.item = o;
+		first.next = oldfirst;
 		size++;
 	}
 
-	E pop() {
-		Node<E> nodeToBeReturned=first;
-		Node<E> new_first = first.next;
-		new_first.previous = null;
-		first = new_first;
-		size--;
-		return nodeToBeReturned.item;
+	public void pop() throws Exception {
+		if (size > 0) {
+			first = first.next;
+
+			size--;
+		} else {
+			throw new Exception("Error: Stack size zero");
+		}
+
 	}
 
 	@SuppressWarnings("hiding")
 	private class Node<E> {
 		E item;
+
 		Node<E> next;
-		@SuppressWarnings("unused")
-		Node<E> previous;
+
 	}
 
 	public Iterator<E> iterator() {
@@ -55,7 +50,7 @@ public class StackUsingLinkedList<E> implements Iterable<E>{
 			if (i == size) {
 				currentNode = first;
 
-			} 
+			}
 			i--;
 			Node<E> nodeToBeReturned = currentNode;
 			currentNode = currentNode.next;

@@ -4,15 +4,13 @@ public class DataTest {
 
 	public static void main(String[] args) throws Exception {
 
-		LinkedList<Integer> linkedListForTesting= new LinkedList<Integer>();
-		linkedListForTesting.add(1);
-		linkedListForTesting.add(3);
-		linkedListForTesting.add(4);
-		linkedListForTesting.removeFirst();
-		linkedListForTesting.removeLast();
-		linkedListForTesting.removeLast();
-		//linkedListForTesting.remove(2);
-		for(Integer i:linkedListForTesting){
+		QueueUsingLinkedList<Integer> stackUsingLinkedListForTesting= new QueueUsingLinkedList<Integer>();
+		stackUsingLinkedListForTesting.enqueue(1);
+		stackUsingLinkedListForTesting.enqueue(3);
+		stackUsingLinkedListForTesting.enqueue(4);
+		stackUsingLinkedListForTesting.dequeue();
+		stackUsingLinkedListForTesting.enqueue(5);
+		for(Integer i: stackUsingLinkedListForTesting){
 			System.out.println(i);
 		}
 		
